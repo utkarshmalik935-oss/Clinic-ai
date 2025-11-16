@@ -1,0 +1,26 @@
+### Webhook: Book appointment
+POST http://localhost:5000/webhook
+Content-Type: application/json
+
+{
+  "from": "+919876543210",
+  "text": "Hi I want to book an appointment",
+  "name": "Asha",
+  "doctor": "Dr. Sharma",
+  "datetime": "2025-11-20T16:00:00"
+}
+
+### Upload report
+POST http://localhost:5000/upload-report
+Content-Type: multipart/form-data
+
+--boundary
+Content-Disposition: form-data; name="appointment_id"
+
+appt_01234567
+--boundary
+Content-Disposition: form-data; name="file"; filename="lab1.png"
+Content-Type: image/png
+
+< ./path/to/lab1.png
+--boundary--
